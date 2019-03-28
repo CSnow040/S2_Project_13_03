@@ -49,15 +49,18 @@
 
 */
 
-var allLetters
-var currentLetter
-var wordLetters
-var acrossClue
-var downClue
-var typeDirection
+//these are all of the variables that will be used in this javascript document
+var allLetters;
+var currentLetter;
+var wordLetters;
+var acrossClue;
+var downClue;
+var typeDirection;
 
+//this allows the init to be ran first
 window.onload = init;
 
+//this init function runs the cammands inside of it right as the javascript runs on the website
 function init() {
       allLetters = document.querySelector("table#crossword span");
       currentLetter = allLetters[0];
@@ -78,8 +81,10 @@ function formatPuzzle(puzzleLetter) {
       downClue.style.color = "";
 
       if (currentLetter.dataSet.clueA != 'undefined') {
-            acrossClue = document.getElementById("");
-            acrossClue.style.color
+            acrossClue = currentLetter.dataSet.clueA;
+            acrossClue.style.color = "blue";
+            wordLetters = document.getElementById("data-clue-A");
+            wordLetters = document.querySelectorAll().style.background = "rgb(231, 231, 255)";
       }
 }
 
