@@ -7,8 +7,8 @@
 
    Crossword Puzzle Script
    
-   Author: 
-   Date:   
+   Author: Caleb Snow
+   Date:   3/27/19
    
    Global Variables
    ================
@@ -49,11 +49,40 @@
 
 */
 
+var allLetters
+var currentLetter
+var wordLetters
+var acrossClue
+var downClue
+var typeDirection
 
+window.onload = init;
 
+function init() {
+      allLetters = document.querySelector("table#crossword span");
+      currentLetter = allLetters[0];
+      var acrossID = currentLetter.dataSet.clueA;
+      var downID = currentLetter.dataSet.clueD;
+      acrossClue = document.getElementById("acrossClue");
+      downClue = document.getElementById("downClue");
+}
 
+//this makes a function of formatPuzzle
+function formatPuzzle(puzzleLetter) {
+      currentLetter = puzzleLetter;
+      //this for loop loops through all of the items in the allLetters array and changes all background styles to lose all their color in the puzzle
+      for (var i = 0; i < allLetters.length; i++) {
+            allLetters[i].style.background = "";
+      }
+      acrossClue.style.color = "";
+      downClue.style.color = "";
 
-   
+      if (currentLetter.dataSet.clueA != 'undefined') {
+            acrossClue = document.getElementById("");
+            acrossClue.style.color
+      }
+}
+
 
 
 
@@ -62,5 +91,5 @@
 /*====================================================*/
 
 function getChar(keyNum) {
-   return String.fromCharCode(keyNum);
+      return String.fromCharCode(keyNum);
 }
