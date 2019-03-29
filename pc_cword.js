@@ -49,23 +49,22 @@
 
 */
 
-//these are all of the variables that will be used in this javascript document
+//all the variables used to call upon certain specific in the JavaScript
 var allLetters;
 var currentLetter;
 var wordLetters;
 var acrossClue;
 var downClue;
-var typeDirection;
+var typeDirection = "right";
 
-//this allows the init to be ran first
 window.onload = init;
 
-//this init function runs the cammands inside of it right as the javascript runs on the website and sets up the inital conditions of the puzzle
+// this function sets up the initial conditions of the puzzle which is the first javascript code ran on the page
 function init() {
-      allLetters = document.querySelector("table#crossword span");
+      allLetters = document.querySelectorAll("table#crossword span");
       currentLetter = allLetters[0];
-      var acrossID = currentLetter.dataSet.clueA;
-      var downID = currentLetter.dataSet.clueD;
+      var acrossID = currentLetter.dataset.clueA;
+      var downID = currentLetter.dataset.clueD;
       acrossClue = document.getElementById(currentLetter.dataset.clueA);
       downClue = document.getElementById(currentLetter.dataset.clueD);
       formatPuzzle(currentLetter);
@@ -101,7 +100,7 @@ function init() {
       };
 
 }
-//this function will format the colors of the crossword table cells and the clues to be different colors and be correspondent to their color coordination
+// this function will format the colors of the crossword table cells and the clues
 function formatPuzzle(puzzleLetter) {
       currentLetter = puzzleLetter;
       for (var i = 0; i < allLetters.length; i++) {
@@ -138,9 +137,9 @@ function formatPuzzle(puzzleLetter) {
       }
 }
 
-//this function is used to allow users to select puzzle cells using the keyboard depending on what key the user presses
+// this function is to allow users to select puzzle cells using the keyboard.
 function selectLetter(e) {
-
+       
       var leftLetter = document.getElementById(currentLetter.dataset.left);
       var upLetter = document.getElementById(currentLetter.dataset.up);
       var downLetter = document.getElementById(currentLetter.dataset.down);
@@ -172,21 +171,21 @@ function selectLetter(e) {
       }
       e.preventDefault(KeyboardEvent);
 }
-
-//this function toggles the typing direction between right and down so that the user can properly use the keyboard to type the puzzlue out 
-function switchTypeDirection() {
-      var typeImage = document.getElementById("directionImg");
-
-      if (typeDirection === "right") {
-            typeDirection = "down";
-            typeImage.src = "pc_down.png";
-            currentLetter.style.backgroundColor = "rgb(255, 191, 191)";
-      } else {
-            typeDirection = "right";
-            typeImage.src = "pc_right.png";
-            currentLetter.style.backgroundColor = "rgb(191, 191, 255)";
+      
+//this function toggles the typing direction between right and down.
+      function switchTypeDirection() {
+            var typeImage = document.getElementById("directionImg");
+            
+            if (typeDirection ==="right") {
+                  typeDirection = "down";
+                  typeImage.src = "pc_down.png";
+                  currentLetter.style.backgroundColor = "rgb(255, 191, 191)";
+            } else {
+                  typeDirection = "right";
+                  typeImage.src = "pc_right.png";
+                  currentLetter.style.backgroundColor = "rgb(191, 191, 255)";
+            }
       }
-}
 
 
 
